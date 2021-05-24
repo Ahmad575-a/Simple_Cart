@@ -1,5 +1,6 @@
 import React from 'react'
 import ItemCard from './ItemCard'
+import data from './data'
 
 const Home = () => {
     return (
@@ -7,7 +8,12 @@ const Home = () => {
             <h1 className="text-center mt-3">All Items</h1>
             <section className="py-4 container">
                 <div className="row justify-content-center">
-                    <ItemCard img="" title="title" desc="desc" />
+                    {data.productData.map((item, index)=>{
+                        return(
+                            <ItemCard key={index} item={item} img={item.img} title={item.title} price={item.price} desc={item.desc} />
+                        )
+                    })}
+                    
                 </div>
             </section>
         </div>
